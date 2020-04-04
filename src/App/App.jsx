@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar.jsx';
-import TranslationBlock from '../TranslationBlock/TranslationBlock'
+import TranslationBlock from '../TranslationBlock/TranslationBlock';
 import './App.scss';
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
     <div className='main-app'>
       <Navbar />
       <TranslationBlock />
+
     </div>
   );
 }
