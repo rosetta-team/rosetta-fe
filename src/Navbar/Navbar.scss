@@ -1,0 +1,24 @@
+$main-dark-color: #131515;
+$primary-color: #2B2C28;
+$secondary-color: rgb(62, 64, 65);
+$darker-blue: #339989;
+$pale-blue: #7DE2D1;
+$snow: #FFFAFB;
+
+.navbar-section {
+  display: flex;
+  width: 100%;
+  height: 6rem;
+  justify-content: center;
+  align-items: center;
+  background-color: $pale-blue;
+  font-family: 'Gotu',
+    sans-serif;
+  margin-top: 1%;
+  align-self: center;
+}
+
+.navbar-heading {
+  font-size: 3.5em;
+  color: $main-dark-color;
+}
