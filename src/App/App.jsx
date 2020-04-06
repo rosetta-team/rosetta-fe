@@ -8,7 +8,6 @@ function App() {
     <div className='main-app'>
       <Navbar />
       <TranslationBlock />
-
     </div>
   );
 }
