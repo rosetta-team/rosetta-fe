@@ -8,7 +8,7 @@ import ApolloClient from 'apollo-boost';
 import { gql } from "apollo-boost";
 // or you can use `import gql from 'graphql-tag';` instead
 const client = new ApolloClient({
-  uri: 'https://48p1r2roz4.sse.codesandbox.io',
+  uri: 'https://rosetta-server.herokuapp.com/graphql',
 });
 
 //doing a quick query here to make sure it was installed correctly 
@@ -16,8 +16,22 @@ client
   .query({
     query: gql`
       {
-        rates(currency: "USD") {
-          currency
+        allLanguages {
+          edges {
+            node {
+              name
+              id
+              methods {
+                edges {
+                  node {
+                    id
+                    name
+                    snippet
+                  }
+                }
+              }
+            }
+          }
         }
       }
     `
