@@ -2,23 +2,33 @@ $main-dark-color: #131515;
 $primary-color: #2B2C28;
 $secondary-color: rgb(62, 64, 65);
 $darker-blue: #339989;
-$pale-blue: #7DE2D1;
+$pale-blue: rgb(80, 213, 191);
 $snow: #FFFAFB;
 
 .navbar-section {
   display: flex;
   width: 100%;
-  height: 6rem;
-  justify-content: center;
+  height: 4rem;
+  justify-content: start;
   align-items: center;
-  background-color: $secondary-color;
   font-family: 'Gotu',
     sans-serif;
-  margin-top: 1%;
   align-self: center;
+  background-color: $main-dark-color;
+  position: fixed;
+  top: 0;
+}
+
+.icon {
+  background: url('../Assets/gradient-setting.png');
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  margin-left: 1%;
 }
 
 .navbar-heading {
-  font-size: 3.5em;
+  font-size: 2.3em;
   color: $pale-blue;
+  margin-left: 2px;
 }
