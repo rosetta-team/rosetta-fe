@@ -2,7 +2,7 @@ $main-dark-color: #131515;
 $primary-color: #2B2C28;
 $darker-blue: #339989;
 $pale-blue: #7DE2D1;
-$snow: #FFFAFB;
+$snow: rgb(202, 202, 202);
 
 * {
   margin: 0px;
@@ -12,7 +12,17 @@ $snow: #FFFAFB;
 .main-app {
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 100%;
   justify-content: center;
+
   background-color: $snow;
+}
+
+.main-results {
+  display: flex;
+  width: 100%;
+  border-top: solid 5px $primary-color;
+  height: 100%;
+  align-self: center;
+
 }
