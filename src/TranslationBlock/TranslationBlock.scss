@@ -9,10 +9,12 @@ $snow: #FFFAFB;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 39em;
+  height: 25em;
   width: 100%;
-  margin-top: 1%;
-  border: solid 2px
+  background: linear-gradient(rgba(131, 127, 127, 0.192), rgba(143, 140, 145, 0.164)),
+  url('../Assets/pink-blue-gradient.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .specified-lang-sect {
@@ -20,20 +22,47 @@ $snow: #FFFAFB;
   height: 4rem;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
 }
 
-.source-lang-name {
-  border: solid 1px;
-  width: 50%;
-}
-
+.source-lang-name,
 .target-lang-name {
-  border: solid 1px;
-  width: 50%;
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  color: $main-dark-color;
+}
+
+.language-seperator {
+  background: url('../Assets/arrow.png');
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+  margin-left: 1%;
 }
 
 .source-target-wrapper {
-  height: 25rem;
+  height: auto;
   display: flex;
+  justify-content: center;
   flex-direction: row;
+  width: 100%;
+}
+
+.source-lang-lable,
+.target-lang-lable {
+  font-size: 1.7em;
+  margin-right: 5px;
+}
+
+.select-lang {
+  width: 200px;
+  height: 30px;
+  font-size: 1.1em;
+  color: $darker-blue;
+  background-color: $snow;
+  border: none
 }
