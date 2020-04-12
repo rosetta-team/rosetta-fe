@@ -1,51 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App/App.jsx';
+import App from './components/App/App.jsx';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { rootReducer } from './reducers/index'
 import * as serviceWorker from './serviceWorker';
-import { ApolloProvider } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
-import { gql } from "apollo-boost";
-// or you can use `import gql from 'graphql-tag';` instead
-const client = new ApolloClient({
-  uri: 'https://rosetta-server.herokuapp.com/graphql',
-});
 
-//doing a quick query here to make sure it was installed correctly 
-client
-  .query({
-    query: gql`
-      {
-        allLanguages {
-          edges {
-            node {
-              name
-              id
-              methods {
-                edges {
-                  node {
-                    id
-                    name
-                    snippet
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `
-  })
-  .then(result => console.log(result));
-
-
+const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
-  <React.StrictMode>
-      <ApolloProvider client={client}>
+  <Provider store={store}>
+    <React.StrictMode>
         <App />
-      </ApolloProvider>
-    </React.StrictMode>,
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
