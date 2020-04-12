@@ -1,0 +1,68 @@
+$main-dark-color: #131515;
+$primary-color: #2B2C28;
+$secondary-color: rgb(62, 64, 65);
+$darker-blue: #339989;
+$pale-blue: #7DE2D1;
+$snow: #FFFAFB;
+
+.translation-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 25em;
+  width: 100%;
+  background: linear-gradient(rgba(131, 127, 127, 0.192), rgba(143, 140, 145, 0.164)),
+  url('../assets/pink-blue-gradient.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.specified-lang-sect {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+}
+
+.source-lang-name,
+.target-lang-name {
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  align-items: center;
+  color: $main-dark-color;
+}
+
+.language-seperator {
+  background: url('../assets/arrow.png');
+  height: 40px;
+  width: 40px;
+  background-size: cover;
+  margin-left: 1%;
+}
+
+.source-target-wrapper {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+}
+
+.source-lang-lable,
+.target-lang-lable {
+  font-size: 1.7em;
+  margin-right: 5px;
+}
+
+.select-lang {
+  width: 200px;
+  height: 30px;
+  font-size: 1.1em;
+  color: $darker-blue;
+  background-color: $snow;
+  border: none
+}
