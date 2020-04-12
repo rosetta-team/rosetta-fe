@@ -1,0 +1,34 @@
+$main-dark-color: #131515;
+$primary-color: #2B2C28;
+$secondary-color: rgb(62, 64, 65);
+$darker-blue: #339989;
+$pale-blue: rgb(80, 213, 191);
+$snow: #FFFAFB;
+
+.navbar-section {
+  display: flex;
+  width: 100%;
+  height: 4rem;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: 'Gotu',
+    sans-serif;
+  align-self: center;
+  background-color: $main-dark-color;
+  position: fixed;
+  top: 0;
+}
+
+.icon {
+  background: url('../assets/gradient-setting.png');
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  margin-left: 1%;
+}
+
+.navbar-heading {
+  font-size: 2.3em;
+  color: $pale-blue;
+  margin-left: 2px;
+}

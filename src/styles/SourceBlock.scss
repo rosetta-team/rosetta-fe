@@ -1,0 +1,66 @@
+$main-dark-color: #131515;
+$primary-color: #2B2C28;
+$secondary-color: rgb(62, 64, 65);
+$darker-blue: #339989;
+$pale-blue: #7DE2D1;
+$snow: #FFFAFB;
+
+.source-block-sect {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: auto;
+  margin-top: 2rem;
+  flex-direction: column;
+}
+
+.method-dropdown-sect {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.method-label {
+  color: $main-dark-color;
+  font-size: 1.4em;
+  margin-right: 5px;
+  margin-left: 2em;
+}
+
+.select-method {
+  margin-right: 46.2%;
+  width: 200px;
+  height: 30px;
+  font-size: 1.1em;
+  color: $darker-blue;
+  background-color: $snow;
+  border: none
+}
+
+.action-buttons-sect {
+  width: 100%;
+  height: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.translate-button,
+.reset-button {
+  width: 400px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  margin: 20px;
+  background-color: $primary-color;
+  color: $pale-blue;
+  font-size: 1.2em;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $pale-blue;
+    color: $primary-color;
+  }
+}
