@@ -1,7 +1,9 @@
-export const sourceLanguage = (state = '', action) => {
+export const sourceLanguage = (state = {}, action) => {
   switch(action.type) {
     case 'SET_SOURCE':
-      return action.sourceLanguage
+      return {...state, name:action.sourceLanguage}
+    case 'SET_SOURCE_ID':
+      return {...state, id:action.sourceId}
     default:
       return state;
   }
