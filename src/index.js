@@ -7,15 +7,22 @@ import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootReducer } from './reducers/index'
 import * as serviceWorker from './serviceWorker';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
 
 const store = createStore(rootReducer, composeWithDevTools());
+const client = new ApolloClient({
+  uri: 'https://rosetta-server.herokuapp.com/graphql',
+});
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <React.StrictMode>
         <App />
-    </React.StrictMode>
-  </Provider>,
+      </React.StrictMode>
+    </Provider>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
