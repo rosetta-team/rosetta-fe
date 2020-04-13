@@ -1,6 +1,6 @@
 import { gql } from "apollo-boost";
 
-export const getAllLanguages = 
+export const GET_ALL_LANGUAGES = 
   gql`
   {
     allLanguages {
@@ -14,10 +14,10 @@ export const getAllLanguages =
   }
 `
 
-export const getTranslation = (targetId, methodId) => { 
-  gql`
-  {
-    translations(targetLanguageId: ${targetId}, methodId: ${methodId}) {
+export const GET_TRANSLATION = 
+   gql`
+  query translations($targetLanguageId: Int!, $methodId: Int!) {
+    translations(targetLanguageId: $targetLanguageId, methodId: $methodId) {
       weightedRelevancyRating
       method {
         id
@@ -30,4 +30,3 @@ export const getTranslation = (targetId, methodId) => {
     }
   }
 `
-}
