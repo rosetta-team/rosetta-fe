@@ -2,13 +2,14 @@ import React from 'react';
 import '../../styles/SourceBlock.scss';
 
 const SourceBlock = ({ methods }) => {
+let sourceMethods = methods.map(method => <option key={method.id} id={method.id}>{method.name}</option>)
   return (
     <section className='source-block-sect'>
       <section className='method-dropdown-sect'>
         <p className='method-label'>Select a method:</p>
         <select className='select-method'>
           <option>--method--</option>
-          {methods}
+          {sourceMethods}
         </select>
       </section>
       <section className='action-buttons-sect'>
