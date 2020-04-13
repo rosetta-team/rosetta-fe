@@ -4,20 +4,30 @@ export const getAllLanguages =
   gql`
   {
     allLanguages {
-      edges {
-        node {
-          name
-          id
-          methods {
-            edges {
-              node {
-                id
-                name
-              }
-            }
-          }
-        }
+      id
+      name
+      methods {
+        id
+        name
       }
     }
   }
 `
+
+export const getTranslation = (targetId, methodId) => { 
+  gql`
+  {
+    translations(targetLanguageId: ${targetId}, methodId: ${methodId}) {
+      weightedRelevancyRating
+      method {
+        id
+        name
+        description
+        syntax
+        snippet
+        docsUrl
+      }
+    }
+  }
+`
+}

@@ -17,3 +17,8 @@ export const setResults = (results) => ({
   type: 'SET_RESULTS',
   results
 })
+
+export const setLanguages = (languages) => ({
+  type: 'SET_LANGUAGES',
+  languages
+})

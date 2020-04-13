@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 import { setSourceLanguage, setSourceMethod, setTargetLanguage, setLanguages } from '../../actions'
 
 class TranslationBlock extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state= {
       sourceLanguage: '',
@@ -17,9 +17,10 @@ class TranslationBlock extends Component {
     }
   }
 
-  handleChange = (event,data) => {
+  handleChange = (event, data) => {
     let methods = this.findMethods(event, data)
-    this.setState({[event.target.name]: event.target.value, sourceMethods: methods})
+    this.props.setSourceLanguage(event.target.value)
+    this.setState({sourceMethods: methods})
   }
   
   findMethods = (event, data) => {
