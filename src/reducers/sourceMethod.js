@@ -1,7 +1,7 @@
-export const sourceMethod = (state = '', action) => {
+export const sourceMethod = (state = {}, action) => {
   switch (action.type) {
     case 'SET_METHOD':
-      return action.sourceMethod
+      return {...state, name:action.sourceMethod, id:action.methodId}
     default:
       return state;
   }
