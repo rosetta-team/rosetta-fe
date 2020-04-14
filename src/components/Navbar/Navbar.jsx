@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/Navbar.scss';
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <section className='navbar-section'>
       <span role='img' aria-label='icon' className='icon'></span>
