@@ -44,5 +44,11 @@
   },
   "devDependencies": {
     "@testing-library/react": "^9.5.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!src/serviceWorker.js"
+    ]
   }
 }
