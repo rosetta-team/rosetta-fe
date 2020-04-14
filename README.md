@@ -1,5 +1,5 @@
 ### Local Installation
- 
+
  To run on your local machine:
  1. Clone down this repo `$ git clone git@github.com:rosetta-team/rosetta-fe.git`
  2. Change into this directory `$ cd rosetta-fe`
@@ -8,3 +8,20 @@
  5. After steps 1-4 are complete, you can go to your browser and view the app on `localhost:3000`
 
 ** **NOTE** ** If you have another server running, you'll need to shut down all servers by running control + c
+
+### Testing & Test Coverage
+
+To run test suite:
+```
+npm test
+```
+
+To run test suite with coverage report:
+```
+npm test -- --coverage --watchAll
+```
+
+After running coverage report, to open graphic interface version:
+```
+open coverage/lcov-report/index.html
+```
