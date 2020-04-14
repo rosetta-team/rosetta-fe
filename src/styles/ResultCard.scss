@@ -1,0 +1,72 @@
+$main-dark-color: #131515;
+$primary-color: #2B2C28;
+$secondary-color: rgb(189, 189, 189);
+$darker-blue: #339989;
+$pale-blue: #7DE2D1;
+$snow: #FFFAFB;
+
+.result-div {
+  height: auto;
+  width: 96%;
+  background-color: $snow;
+  margin-top: 2%;
+  border-radius: 5px;
+}
+
+.top-section {
+  border-bottom: solid 1px $main-dark-color;
+  background-color: $pale-blue;
+  color: $main-dark-color;
+  height: 1.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px 5px 0px 0px
+}
+
+.top-div-name {
+  margin-left: 2%;
+}
+
+.top-div-rate {
+  font-size: 1.1em;
+  margin-right: 3%;
+}
+
+.mid-section {
+  height: auto;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  // align-items: center;
+}
+
+.mid-div-description {
+
+}
+
+p span {
+  font-weight: bold;
+}
+
+.mid-div-syntax {
+  border: solid 1px;
+  width: 90%;
+  padding: 1%;
+  background-color: $secondary-color;
+  border-radius: 5px;
+  align-self: center;
+  margin-top: 1%;
+}
+
+.bottom-section {
+  height: auto;
+  margin-top: 1%;
+  border-top: solid 1px;
+}
+
+.bottom-div-snippet {
+  padding: 1%;
+  width: 90%;
+}

@@ -6,11 +6,9 @@ $pale-blue: #7DE2D1;
 $snow: #FFFAFB;
 
 .results-container {
-  // height: 41rem;
-  // overflow: scroll;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   clear: both;
@@ -18,8 +16,7 @@ $snow: #FFFAFB;
 
 .results-header {
   margin-top: 1%;
-  width: 100%;
-  float: left;
+  width: 30%;
 }
 
 .results-title {
@@ -32,11 +29,24 @@ $snow: #FFFAFB;
 
 .results-sect {
   display: flex;
-  height: 46vh;
+  height: 88vh;
   width: 80%;
-  // overflow: scroll;
+  overflow: scroll;
   margin-top: 1%;
   flex-flow: column nowrap;
-  // justify-content: space-between;
-  // align-items: center;
+  align-items: center;
+  margin-bottom: 1%;
+}
+
+.source-section {
+  border: solid 2px;
+  width: 40%;
+  display: flex;
+  flex-flow: column; 
+}
+
+.source-method-section {
+  border: solid 2px ;
+  height: 88vh;
+  width: 100%;
 }
