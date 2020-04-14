@@ -8,10 +8,9 @@ export const setSourceId = (id) => ({
   sourceId: id
 })
 
-export const setSourceMethod = (method, id) => ({
+export const setSourceMethod = (method) => ({
   type: 'SET_METHOD',
-  sourceMethod: method,
-  methodId: id
+  sourceMethod: method
 })
 
 export const setTargetLanguage = (language) => ({
