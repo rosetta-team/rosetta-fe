@@ -6,7 +6,7 @@ import { withApollo } from '@apollo/react-hoc'
 import { GET_TRANSLATION } from '../../queries'
 import { Query } from 'react-apollo'
 import { connect } from 'react-redux'
-import { setSourceLanguage, setSourceMethod, setTargetLanguage, setSourceId, setTargetId } from '../../actions'
+import { setSourceLanguage, setSourceMethod, setTargetLanguage, setSourceId, setTargetId, setResults } from '../../actions'
 
 class TranslationBlock extends Component {
   constructor(props) {
@@ -43,12 +43,12 @@ class TranslationBlock extends Component {
     this.props.setSourceMethod(event.target.value, methodId)
   }
 
-  
+
   handleSubmit = async (event) => {
     let targetId = Number(this.props.targetLanguage.id)
     let methodId = Number(this.props.sourceMethod.id)
     const { data } = await this.props.client.query({ query: GET_TRANSLATION, variables: { targetLanguageId: targetId, methodId: methodId}})
-    console.log(data)
+    this.props.setResults(data)
   }
 
   clearDropBoxes = () => {
@@ -102,7 +102,8 @@ const mapDispatchToProps = dispatch => ({
   setTargetLanguage: language => dispatch(setTargetLanguage(language)),
   setSourceMethod: (method, id) => dispatch(setSourceMethod(method, id)),
   setSourceId: id => dispatch(setSourceId(id)),
-  setTargetId: id => dispatch(setTargetId(id))
+  setTargetId: id => dispatch(setTargetId(id)),
+  setResults: results => dispatch(setResults(results))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withApollo(TranslationBlock));
