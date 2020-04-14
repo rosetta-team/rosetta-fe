@@ -1,6 +1,6 @@
 import { gql } from "apollo-boost";
 
-export const GET_ALL_LANGUAGES = 
+export const GET_ALL_LANGUAGES =
   gql`
   {
     allLanguages {
@@ -9,12 +9,16 @@ export const GET_ALL_LANGUAGES =
       methods {
         id
         name
+        description
+        syntax
+        snippet
+        docsUrl
       }
     }
   }
 `
 
-export const GET_TRANSLATION = 
+export const GET_TRANSLATION =
    gql`
   query translations($targetLanguageId: Int!, $methodId: Int!) {
     translations(targetLanguageId: $targetLanguageId, methodId: $methodId) {
