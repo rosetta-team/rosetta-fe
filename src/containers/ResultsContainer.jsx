@@ -6,8 +6,6 @@ import ResultCard from '../components/ResultCard/ResultCard'
 
 const ResultsContainer = (props) => {
   let results = props.results.map(result => {
-    console.log(result.translations)
-    // debugger
     return result.translations.map(res => <ResultCard rating={res.weightedRelevancyRating} method={res.method}/>)
   })
 
