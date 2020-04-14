@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/IntroCard.scss';
 
-const IntroCard = () => {
+export const IntroCard = () => {
   return (
     <section className='intro-card'>
       <section className='intro-head'>
