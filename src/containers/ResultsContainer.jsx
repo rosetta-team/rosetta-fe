@@ -1,18 +1,31 @@
 import React from 'react'
 import IntroCard from '../components/IntroCard/IntroCard'
 import '../styles/ResultsContainer.scss';
+import { connect } from 'react-redux'
+import ResultCard from '../components/ResultCard/ResultCard'
 
-const ResultsContainer = () => {
+const ResultsContainer = (props) => {
+  let results = props.results.map(result => {
+    console.log(result.translations)
+    // debugger
+    return result.translations.map(res => <ResultCard rating={res.weightedRelevancyRating} method={res.method}/>)
+  })
+
   return (
     <section className='results-container'>
-      <article className='results-header'>    
+      <article className='results-header'>
         <h2 className='results-title'>Results:</h2>
       </article>
       <section className='results-sect'>
-        <IntroCard />
+      {props.results?
+        results:null
+      }
       </section>
     </section>
   )
 }
 
-export default ResultsContainer;
+export const mapStateToProps = (state) => ({
+  results: state.results
+})
+export default connect(mapStateToProps)(ResultsContainer);
