@@ -27,3 +27,11 @@ export const setResults = (results) => ({
   type: 'SET_RESULTS',
   results
 })
+
+export const resetResults = () => ({
+  type: 'RESET_RESULTS'
+})
+
+export const resetSourceMethod = () => ({
+  type: 'RESET_SOURCE_METHOD'
+})
