@@ -1,7 +1,9 @@
 export const results = (state = [], action) => {
   switch(action.type) {
     case 'SET_RESULTS':
-      return [...state, action.results]
+      return [action.results]
+    case 'RESET_RESULTS':
+      return []
     default:
       return state
   }
