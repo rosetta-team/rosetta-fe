@@ -1,30 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import '../../styles/SourceMethod.scss';
 
-const SourceMethod = () => {
+const SourceMethod = (props) => {
+let { id, name, description, syntax, snippet, docsUrl} = props.sourceMethod
   return (
-    <section className='method-top-sect'>
+    <section key={id} className='method-top-sect'>
       <section className='source-method-name'>
-        <h3>Method you want translated: Method Title</h3>
+        <h3 className='method-name'>{name} </h3>
       </section>
       <section className='method-mid-section'>
-        <p>Description: "The Array.from() method creates a 
-          new, shallow-copied Array instance from an array-like 
-          or iterable object.</p>
+        <p><span>Description:</span> {description} </p>
           <div className='syntax-div'>
-          <p>Syntax: Array.from(arrayLike [, mapFn [, thisArg]])\n</p>
+          <p><span>Syntax: </span> {syntax}</p>
           </div>
       </section>
       <section className='method-bottom-sect'>
         <div>
-          <p>Snippet: console.log(Array.from('foo'));
-            \n// expected output: Array [\"f\", \"o\", \"o\"]\n\n
-            console.log(Array.from([1, 2, 3], x => x + x));\n// expected
-             output: Array [2, 4, 6]\n</p>
+          <span>Snippet:</span>
+          <section className='source-code-wrapper'><code className='code-snippet'>{snippet}</code> </section>
         </div>
       </section>
     </section>
   )
 }
 
-export default SourceMethod;
+export const mapStateToProps = state => ({
+  sourceMethod: state.sourceMethod
+})
+
+export default connect(mapStateToProps)(SourceMethod);
