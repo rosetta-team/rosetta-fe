@@ -11,7 +11,7 @@ export const ResultCard = ({rating, method, resultId, handleVote}) => {
           <h3>{name}</h3>
         </div>
         <div className='top-div-rate'>
-          <p><span>Relevancy:</span>{rate}%</p>
+          <p><span>Relevancy:</span> {rate}%</p>
         </div>
       </section>
       <section className='mid-section'>
