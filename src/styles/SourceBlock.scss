@@ -64,3 +64,20 @@ $snow: #FFFAFB;
     color: $primary-color;
   }
 }
+
+.input-error {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.error-message {
+  border: solid 1px $main-dark-color;
+  background-color: $snow;
+  border-radius: 5px;
+  padding: .5%;
+  font-weight: bold;
+  margin-bottom: -5%;
+  margin-right: 26%;
+  width: 14rem;
+}

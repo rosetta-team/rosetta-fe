@@ -39,14 +39,9 @@ $snow: #FFFAFB;
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
-  // align-items: center;
 }
 
-.mid-div-description {
-
-}
-
-p span {
+span {
   font-weight: bold;
 }
 
@@ -64,9 +59,61 @@ p span {
   height: auto;
   margin-top: 1%;
   border-top: solid 1px;
+  display: flex;
+  flex-direction: row;
 }
 
 .bottom-div-snippet {
   padding: 1%;
   width: 90%;
+}
+
+.user-vote-section {
+  padding: 0 1% 1% 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.vote-btn {
+  padding: 1%;
+  border-radius: 5px;
+  margin-right: 5%;
+  background-color: $primary-color;
+  color: $pale-blue;
+  font-size: .8em;
+  width: 150px;
+  height: 35px;
+  align-self: flex-end;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.down-vote {
+  background: url('../Assets/thumbs-down.png');
+  width: 50px;
+  height: 50px;
+}
+
+.up-vote {
+  background: url('../Assets/like.png');
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+}
+
+.code-wrapper {
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 3px;
+  width: 90%;
+  height: 100px;
+  margin-left: 2%;
+}
+
+.code-snippet {
+  font-family: courier,
+    monospace;
+  font-size: .9em;
 }

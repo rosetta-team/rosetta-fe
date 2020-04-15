@@ -5,14 +5,24 @@ import { GET_ALL_LANGUAGES } from '../../queries'
 import { withApollo } from '@apollo/react-hoc'
 import { GET_TRANSLATION } from '../../queries'
 import { Query } from 'react-apollo'
-import { connect } from 'react-redux'
-import { setSourceLanguage, setSourceMethod, setTargetLanguage, setSourceId, setTargetId, setResults } from '../../actions'
+import { connect } from 'react-redux';
+import Loading from '../Loading/Loading.jsx'
+import { setSourceLanguage, 
+  setSourceMethod, 
+  setTargetLanguage, 
+  setSourceId, 
+  setTargetId, 
+  setResults, 
+  resetSourceMethod, 
+  resetResults } from '../../actions'
 
 class TranslationBlock extends Component {
   constructor(props) {
     super();
     this.state= {
-      sourceMethods: []
+      sourceMethods: [],
+      selectedMethod: {},
+      error: ''
     }
   }
 
@@ -31,35 +41,71 @@ class TranslationBlock extends Component {
   }
 
   findLanguageId = (event, data) => {
-    return data.allLanguages.find(lang => lang.name === event.target.value).id
+    if (event.target.value === 'select language') {
+      return 
+    } else {
+      return data.allLanguages.find(lang => lang.name === event.target.value).id
+    }
   }
 
   findMethods = (event, data) => {
-    return data.allLanguages.find(lang => lang.name === event.target.value ).methods
+    if (event.target.value === 'select language') {
+      return [];
+    } else {
+      return data.allLanguages.find(lang => lang.name === event.target.value ).methods
+    }
   }
 
   handleMethodChange = (event) => {
-    let methodId = this.state.sourceMethods.find(method => method.name === event.target.value).id
-    this.props.setSourceMethod(event.target.value, methodId)
+    let method = this.state.sourceMethods.find(method => method.name === event.target.value)
+    this.setState({selectedMethod: method})
   }
 
+  checkIfEmpty = (obj) => {
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key))
+        return false;
+    }
+    return true;
+  }
+
+  checkInputs = () => {
+    return !this.checkIfEmpty(this.props.sourceMethod) && !this.checkIfEmpty(this.props.targetLanguage) && !this.checkIfEmpty(this.props.sourceLanguage)
+  }
+
+  setMethod = () => {
+    this.props.resetSourceMethod()
+    this.props.setSourceMethod(this.state.selectedMethod)
+  }
 
   handleSubmit = async (event) => {
-    let targetId = Number(this.props.targetLanguage.id)
-    let methodId = Number(this.props.sourceMethod.id)
-    const { data } = await this.props.client.query({ query: GET_TRANSLATION, variables: { targetLanguageId: targetId, methodId: methodId}})
-    this.props.setResults(data)
+    this.setState({error: ''})
+    await this.setMethod()
+    if (this.checkInputs()) {
+      let targetId = Number(this.props.targetLanguage.id)
+      let methodId = Number(this.props.sourceMethod.id)
+      const { data } = await this.props.client.query({ query: GET_TRANSLATION, variables: { targetLanguageId: targetId, methodId: methodId}})
+      this.props.setResults(data)
+    } else {
+      this.setState({error: 'error'})
+    }
   }
 
   clearDropBoxes = () => {
-
+    window.location.reload(false);
   }
 
   render() {
     return (
     <Query query={GET_ALL_LANGUAGES}>
     {({ loading, error, data }) => {
-      if(loading) return <h1 style={{'fontSize': '5rem', 'marginTop': '5rem'}}>Loading...</h1>
+      if(loading) {
+        return (
+          <section className='translation-block'>
+            <Loading />
+          </section>
+        )
+      } 
       if(error) return console.log(error)
       let languages = data.allLanguages.map(language => (<option key={language.id} id={language.id} name={language.name}>{language.name}</option>))
       return (
@@ -67,22 +113,32 @@ class TranslationBlock extends Component {
           <section className='specified-lang-sect'>
             <section className='source-lang-name'>
               <label className='source-lang-lable'>Translate from:</label>
-              <select className='select-lang' name='sourceLanguage' onChange={(event) => this.handleSourceChange(event, data)}>
+              <select className='select-lang' 
+              name='sourceLanguage' 
+              onChange={(event) => this.handleSourceChange(event, data)} required>
                 <option value='select language'>--Select Language--</option>
-                {languages}
+                {languages} 
               </select>
             </section>
             <span role='img' aria-label='icon' className='language-seperator'></span>
               <section className='target-lang-name'>
                 <label className='target-lang-lable'>Translate to:</label>
-                <select className='select-lang' name='targetLanguage' onChange={(event) => this.handleTargetChange(event, data)}>
+                <select className='select-lang' 
+                name='targetLanguage' 
+                onChange={(event) => this.handleTargetChange(event, data)} required>
                   <option value='select language'>--Select Language--</option>
                   {languages}
                 </select>
               </section>
             </section>
             <section className='source-target-wrapper'>
-              <SourceBlock methods={this.state.sourceMethods} handleSubmit={this.handleSubmit} handleMethodChange={this.handleMethodChange}/>
+              <SourceBlock 
+              methods={this.state.sourceMethods} 
+              handleSubmit={this.handleSubmit} 
+              handleMethodChange={this.handleMethodChange}
+              clearDropBoxes={this.clearDropBoxes}
+              error={this.state.error}
+              />
             </section>
           </section>
         )}
@@ -103,7 +159,10 @@ const mapDispatchToProps = dispatch => ({
   setSourceMethod: (method, id) => dispatch(setSourceMethod(method, id)),
   setSourceId: id => dispatch(setSourceId(id)),
   setTargetId: id => dispatch(setTargetId(id)),
-  setResults: results => dispatch(setResults(results))
+  setResults: results => dispatch(setResults(results)),
+  resetSourceMethod: () => dispatch(resetSourceMethod()),
+  resetResults: () => dispatch(resetResults())
+  
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withApollo(TranslationBlock));

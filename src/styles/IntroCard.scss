@@ -7,29 +7,36 @@ $snow: #FFFAFB;
 
 .intro-card {
   width: 90%;
-  height: 15rem;
+  height: auto;
   margin: 20px;
-  border: 1px solid $darker-blue;
   border-radius: 5px;
-  box-shadow: 5px 10px #888888;
+  box-shadow: 10px 10px #888888;
   background-color: $snow;
-  // overflow: auto;
   display: flex;
-  // justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 5%;
+  margin-top: 2%;
 }
 
 .intro-head {
   background-color: $primary-color;
-  color: $snow;
-  height: 30px;
+  color: $pale-blue;
+  height: 40px;
   width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius:  5px 5px 0 0;
+}
+
+.intro-heading {
+  margin-left: 3%;
+  font-size: 1.5em
 }
 
 .intro-para {
   width: 100%;
-
+  font-size: 1.2em;
 }
 
 .intro-message {
@@ -43,4 +50,12 @@ $snow: #FFFAFB;
 
 .ordered-list {
   margin-top: 20px;
+  font-size: 1.1em;
+  margin-bottom: 2%;
+}
+
+.list-item {
+  color: $primary-color;
+  font-weight: bold;
+  margin: 1%;
 }
