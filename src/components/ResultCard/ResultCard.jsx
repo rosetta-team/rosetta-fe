@@ -12,7 +12,7 @@ export const ResultCard = ({rating, method, resultId, handleVote}) => {
           <h3>{name}</h3>
         </div>
         <div className='top-div-rate'>
-          <p><span>Relevancy:</span>{rate}%</p>
+          <p><span>Relevancy:</span> {rate}%</p>
         </div>
       </section>
       <section className='mid-section'>
@@ -37,14 +37,14 @@ export const ResultCard = ({rating, method, resultId, handleVote}) => {
       </section>
       <section className='user-vote-section'>
         <button className='vote-btn' onClick={(event) =>
-        handleVote(resultId, event, 'down')}>
-          This wasn't helpful
-          <span className='down-vote'></span>
+        handleVote(resultId, event, 'up')}>
+          This was helpful!
+          <span className='up-vote'></span>
         </button>
         <button className='vote-btn' onClick={(event) =>
-        handleVote(resultId, event, 'up')}>
-          This was helpful
-          <span className='up-vote'></span>
+        handleVote(resultId, event, 'down')}>
+          This wasn't helpful.
+          <span className='down-vote'></span>
         </button>
       </section>
     </div>

@@ -87,6 +87,8 @@ span {
 
   &:hover {
     cursor: pointer;
+    background-color: $pale-blue;
+    color: $primary-color;
   }
 }
 
@@ -116,8 +118,3 @@ span {
     monospace;
   font-size: .9em;
 }
-
-// pre {
-//   white-space: pre;
-//   overflow: auto;
-// } 

@@ -9,7 +9,7 @@ return (
       <section className='method-dropdown-sect'>
         <p className='method-label'>Select a method:</p>
         <select className='select-method' onChange={(event) => handleMethodChange(event)}>
-          <option>--method--</option>
+          <option>--Method--</option>
           {sourceMethods}
         </select>
       </section>
