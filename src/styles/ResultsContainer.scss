@@ -12,25 +12,26 @@ $snow: #FFFAFB;
   align-items: center;
   justify-content: center;
   clear: both;
+  height: auto;
 }
 
 .results-header {
   margin-top: 1%;
-  width: 30%;
+  width: 100%;
 }
 
 .results-title {
   color: $pale-blue;
-  width: 15%;
+  width: 60%;
   background-color: $primary-color;
   padding-left: 15px;
   border-radius: 0 5px 5px 0;
+  margin-bottom: 2%;
 }
 
 .results-sect {
   display: flex;
   height: 88vh;
-  width: 80%;
   overflow: scroll;
   margin-top: 1%;
   flex-flow: column nowrap;
@@ -38,15 +39,34 @@ $snow: #FFFAFB;
   margin-bottom: 1%;
 }
 
+.results-label {
+  background-color: $primary-color;
+  color: $pale-blue;
+  border-radius: 0 5px 5px 0;
+  padding-left: 2%;
+  width: 50%;
+}
+
+.results-div {
+  width: 100%;
+  margin-top: 1%;
+}
+
 .source-section {
-  border: solid 2px;
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-flow: column; 
 }
 
 .source-method-section {
-  border: solid 2px ;
   height: 88vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.results-wrapper {
+  width: 70%;
+  border-left: solid 1px $main-dark-color;
 }

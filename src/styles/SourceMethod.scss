@@ -1,0 +1,55 @@
+$main-dark-color: #131515;
+$primary-color: #2B2C28;
+$secondary-color: rgb(189, 189, 189);
+$darker-blue: #339989;
+$pale-blue: #7DE2D1;
+$snow: #FFFAFB;
+
+.method-top-sect {
+  background-color: $snow;
+  height: auto;
+  width: 96%;
+  border-radius: 5px;
+}
+
+.source-method-name {
+  background-color: #D89CA9;
+  color:$primary-color;
+  font-size: 1.1em;
+  width: 100%;
+  height: 1.7rem;
+  border-radius: 5px 5px 0px 0px;
+  border-bottom: solid 1px $main-dark-color;
+}
+
+.method-name {
+  margin-left: 2%
+}
+
+.method-mid-section,
+.method-bottom-sect {
+  padding: 2%;
+}
+
+.syntax-div {
+  margin-top: 2%;
+  border: solid 1px;
+  border-radius: 5px;
+  background-color: $secondary-color;
+  padding: 2%;
+}
+
+.source-code-wrapper {
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 3px;
+  width: 97%;
+  height: 100px;
+  // margin-left: 2%;
+}
+
+.code-snippet {
+  font-family: courier,
+  monospace;
+  font-size: .9em;
+}
