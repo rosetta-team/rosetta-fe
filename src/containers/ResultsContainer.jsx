@@ -9,7 +9,7 @@ import { withApollo } from '@apollo/react-hoc'
 import { useMutation } from '@apollo/react-hooks';
 import { setResults } from '../actions'
 
-class ResultsContainer extends Component {
+export class ResultsContainer extends Component {
   constructor(props) {
     super();
   }

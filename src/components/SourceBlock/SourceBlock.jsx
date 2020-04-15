@@ -28,7 +28,7 @@ return (
 
 export const mapStateToProps = state => ({
   targetLanguage: state.targetLanguage,
-  sourceMethods: state.sourceMethod,
+  sourceMethod: state.sourceMethod,
   sourceLanguage: state.sourceLanguage
 })
 
