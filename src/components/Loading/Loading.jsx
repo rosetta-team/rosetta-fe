@@ -1,9 +1,19 @@
 import React from 'react';
-import './Loading.scss';
+import '../../styles/Loading.scss';
 
 const Loading = () => {
   return (
-    <div class="center">
+    <div className="center">
+      <div className="cs-loader">
+        <div className="cs-loader-inner">
+          <label>●</label>
+          <label>●</label>
+          <label>●</label>
+          <label>●</label>
+          <label>●</label>
+          <label>●</label>
+        </div>
+      </div>
     </div>
   )
 }
