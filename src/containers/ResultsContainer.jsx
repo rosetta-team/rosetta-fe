@@ -10,7 +10,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { setResults } from '../actions'
 import '../styles/prism.css'
 
-class ResultsContainer extends Component {
+export class ResultsContainer extends Component {
   constructor(props) {
     super();
   }

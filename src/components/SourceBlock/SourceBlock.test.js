@@ -1,5 +1,5 @@
 import React from 'react';
-import SourceBlock from './SourceBlock';
+import SourceBlock, { mapStateToProps} from './SourceBlock';
 import { render } from '@testing-library/react'
 import { createStore } from 'redux';
 import ApolloClient from 'apollo-boost';
@@ -22,5 +22,38 @@ describe('SourceBlock component', () => {
                                  </ApolloProvider>
                                 );
     expect(getByText('Select a method:')).toBeInTheDocument();
+  })
+})
+
+describe('mapStateToProps', () => {
+  it('should return sourceLanguage, targetLangauge, and sourceMethod', () => {
+    const mockState = {
+      sourceLanguage: {name:'Ruby', id:1},
+      targetLanguage: {name: 'JavaScript', id:2},
+      sourceMethod: {
+        "id": "112",
+        "name": "Array.prototype.concat()",
+        description: 'thing',
+        syntax: 'another thing',
+        docsUrl: 'place.com',
+        snippet: 'bad test data'
+      },
+      results: []
+    }
+    const expected = {
+      sourceLanguage: {name:'Ruby', id:1},
+      targetLanguage: {name: 'JavaScript', id:2},
+      sourceMethod: {
+        "id": "112",
+        "name": "Array.prototype.concat()",
+        description: 'thing',
+        syntax: 'another thing',
+        docsUrl: 'place.com',
+        snippet: 'bad test data'
+      }
+    }
+    const mappedProps = mapStateToProps(mockState);
+
+    expect(mappedProps).toEqual(expected)
   })
 })

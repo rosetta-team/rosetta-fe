@@ -16,7 +16,7 @@ import { setSourceLanguage,
   resetSourceMethod,
   resetResults } from '../../actions'
 
-class TranslationBlock extends Component {
+export class TranslationBlock extends Component {
   constructor(props) {
     super();
     this.state= {
@@ -147,13 +147,13 @@ class TranslationBlock extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   sourceLanguage: state.sourceLanguage,
   targetLanguage: state.targetLanguage,
   sourceMethod: state.sourceMethod,
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   setSourceLanguage: language => dispatch(setSourceLanguage(language)),
   setTargetLanguage: language => dispatch(setTargetLanguage(language)),
   setSourceMethod: (method, id) => dispatch(setSourceMethod(method, id)),

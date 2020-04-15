@@ -4,7 +4,7 @@ import '../../styles/SourceMethod.scss';
 import '../../styles/prism.css'
 import Snippet from "../Snippet/Snippet.jsx"
 
-const SourceMethod = (props) => {
+export const SourceMethod = (props) => {
 let { id, name, description, syntax, snippet, docsUrl} = props.sourceMethod
   return (
     <section key={id} className='method-top-sect'>
