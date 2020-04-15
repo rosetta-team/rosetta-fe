@@ -7,13 +7,13 @@ import { GET_TRANSLATION } from '../../queries'
 import { Query } from 'react-apollo'
 import { connect } from 'react-redux';
 import Loading from '../Loading/Loading.jsx'
-import { setSourceLanguage, 
-  setSourceMethod, 
-  setTargetLanguage, 
-  setSourceId, 
-  setTargetId, 
-  setResults, 
-  resetSourceMethod, 
+import { setSourceLanguage,
+  setSourceMethod,
+  setTargetLanguage,
+  setSourceId,
+  setTargetId,
+  setResults,
+  resetSourceMethod,
   resetResults } from '../../actions'
 
 class TranslationBlock extends Component {
@@ -42,7 +42,7 @@ class TranslationBlock extends Component {
 
   findLanguageId = (event, data) => {
     if (event.target.value === 'select language') {
-      return 
+      return
     } else {
       return data.allLanguages.find(lang => lang.name === event.target.value).id
     }
@@ -85,7 +85,7 @@ class TranslationBlock extends Component {
       let targetId = Number(this.props.targetLanguage.id)
       let methodId = Number(this.props.sourceMethod.id)
       const { data } = await this.props.client.query({ query: GET_TRANSLATION, variables: { targetLanguageId: targetId, methodId: methodId}})
-      this.props.setResults(data)
+      this.props.setResults(data.translations)
     } else {
       this.setState({error: 'error'})
     }
@@ -105,7 +105,7 @@ class TranslationBlock extends Component {
             <Loading />
           </section>
         )
-      } 
+      }
       if(error) return console.log(error)
       let languages = data.allLanguages.map(language => (<option key={language.id} id={language.id} name={language.name}>{language.name}</option>))
       return (
@@ -113,18 +113,18 @@ class TranslationBlock extends Component {
           <section className='specified-lang-sect'>
             <section className='source-lang-name'>
               <label className='source-lang-lable'>Translate from:</label>
-              <select className='select-lang' 
-              name='sourceLanguage' 
+              <select className='select-lang'
+              name='sourceLanguage'
               onChange={(event) => this.handleSourceChange(event, data)} required>
                 <option value='select language'>--Select Language--</option>
-                {languages} 
+                {languages}
               </select>
             </section>
             <span role='img' aria-label='icon' className='language-seperator'></span>
               <section className='target-lang-name'>
                 <label className='target-lang-lable'>Translate to:</label>
-                <select className='select-lang' 
-                name='targetLanguage' 
+                <select className='select-lang'
+                name='targetLanguage'
                 onChange={(event) => this.handleTargetChange(event, data)} required>
                   <option value='select language'>--Select Language--</option>
                   {languages}
@@ -132,9 +132,9 @@ class TranslationBlock extends Component {
               </section>
             </section>
             <section className='source-target-wrapper'>
-              <SourceBlock 
-              methods={this.state.sourceMethods} 
-              handleSubmit={this.handleSubmit} 
+              <SourceBlock
+              methods={this.state.sourceMethods}
+              handleSubmit={this.handleSubmit}
               handleMethodChange={this.handleMethodChange}
               clearDropBoxes={this.clearDropBoxes}
               error={this.state.error}
@@ -162,7 +162,7 @@ const mapDispatchToProps = dispatch => ({
   setResults: results => dispatch(setResults(results)),
   resetSourceMethod: () => dispatch(resetSourceMethod()),
   resetResults: () => dispatch(resetResults())
-  
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withApollo(TranslationBlock));

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/ResultCard.scss'
 
-export const ResultCard = ({rating, method}) => {
+export const ResultCard = ({rating, method, resultId, handleVote}) => {
   let {name, id, description, snippet, syntax}=method
   let rate = (rating.toFixed(2))* 100
   return (
@@ -28,11 +28,13 @@ export const ResultCard = ({rating, method}) => {
           <section className='code-wrapper'><code className='code-snippet'>{snippet}</code></section>
         </div>
       <section className='user-vote-section'>
-        <button className='vote-btn'>
+        <button className='vote-btn' onClick={(event) =>
+        handleVote(resultId, event, 'down')}>
           This wasn't helpful
           <span className='down-vote'></span>
         </button>
-        <button className='vote-btn'>
+        <button className='vote-btn' onClick={(event) =>
+        handleVote(resultId, event, 'up')}>
           This was helpful
           <span className='up-vote'></span>
         </button>

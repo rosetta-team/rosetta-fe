@@ -1,9 +1,9 @@
 import { results } from './results'
 import { setResults } from '../actions'
 
-const mockResults = {
-      translations: [
+const mockResults = [
         {
+          id: 1234124,
           weightedRelevancyRating: 0.8812150487394769,
           method: {
             id: '36',
@@ -17,6 +17,7 @@ const mockResults = {
           __typename: 'MethodResultObject'
         },
         {
+          id: 1234124,
           weightedRelevancyRating: 0.879526740614683,
           method: {
             id: '12',
@@ -30,6 +31,7 @@ const mockResults = {
           __typename: 'MethodResultObject'
         },
         {
+          id: 1234124,
           weightedRelevancyRating: 0.8784721486615596,
           method: {
             id: '55',
@@ -43,6 +45,7 @@ const mockResults = {
           __typename: 'MethodResultObject'
         },
         {
+          id: 1234124,
           weightedRelevancyRating: 0.8780229116438469,
           method: {
             id: '95',
@@ -56,6 +59,7 @@ const mockResults = {
           __typename: 'MethodResultObject'
         },
         {
+          id: 1234124,
           weightedRelevancyRating: 0.8774208180078882,
           method: {
             id: '45',
@@ -69,7 +73,6 @@ const mockResults = {
           __typename: 'MethodResultObject'
         }
       ]
-    }
 
 describe('results reducer', () => {
   it('should return the initial state', () => {
@@ -86,6 +89,6 @@ describe('results reducer', () => {
 
     const result = results(initialState, setResults(mockResults))
 
-    expect(result).toEqual([expected]);
+    expect(result).toEqual(expected);
   });
 });
