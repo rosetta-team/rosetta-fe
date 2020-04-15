@@ -41,7 +41,7 @@ class TranslationBlock extends Component {
   }
 
   findLanguageId = (event, data) => {
-    if (event.target.value == 'select language') {
+    if (event.target.value === 'select language') {
       return 
     } else {
       return data.allLanguages.find(lang => lang.name === event.target.value).id
@@ -49,7 +49,7 @@ class TranslationBlock extends Component {
   }
 
   findMethods = (event, data) => {
-    if (event.target.value == 'select language') {
+    if (event.target.value === 'select language') {
       return [];
     } else {
       return data.allLanguages.find(lang => lang.name === event.target.value ).methods
