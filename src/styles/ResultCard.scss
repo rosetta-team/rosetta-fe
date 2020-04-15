@@ -87,6 +87,8 @@ span {
 
   &:hover {
     cursor: pointer;
+    background-color: $pale-blue;
+    color: $primary-color;
   }
 }
 
