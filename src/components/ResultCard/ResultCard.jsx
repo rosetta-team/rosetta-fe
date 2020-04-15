@@ -24,8 +24,19 @@ const ResultCard = ({rating, method}) => {
       </section>
       <section className='bottom-section'>
         <div className='bottom-div-snippet'>
-          <p><span>Snippet:</span>{snippet}</p>
+          <span>Snippet:</span>
+          <section className='code-wrapper'><code className='code-snippet'>{snippet}</code></section>
         </div>
+      <section className='user-vote-section'>
+        <button className='vote-btn'>
+          This wasn't helpful
+          <span className='down-vote'></span>
+        </button>
+        <button className='vote-btn'>
+          This was helpful
+          <span className='up-vote'></span>
+        </button>
+      </section>
       </section>
     </div>
   )
