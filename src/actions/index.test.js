@@ -32,14 +32,12 @@ describe('actions', () => {
   describe('setSourceMethod', () => {
     it('should return an object with type of SET_METHOD, source method, and method id', () => {
       const mockSourceMethod = 'Array#map';
-      const mockMethodId = 54;
       const expected = {
         type: 'SET_METHOD',
         sourceMethod: mockSourceMethod,
-        methodId: mockMethodId
       }
 
-      const result = actions.setSourceMethod(mockSourceMethod, mockMethodId);
+      const result = actions.setSourceMethod(mockSourceMethod);
 
       expect(result).toEqual(expected);
     });
