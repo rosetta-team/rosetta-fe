@@ -38,8 +38,8 @@ export const GET_TRANSLATION =
 
 export const CREATE_VOTE =
   gql`
-  mutation createVote($methodResultId: Int!) {
-   createVote(methodResultId: $methodResultId) {
+  mutation createVote($methodResultId: ID!, $type: String!) {
+   createVote(methodResultId: $methodResultId, type: $type) {
      id
      weightedRelevancyRating
      method {
