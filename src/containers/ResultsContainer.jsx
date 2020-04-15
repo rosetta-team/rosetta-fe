@@ -5,25 +5,29 @@ import { connect } from 'react-redux';
 import SourceMethod from '../components/SourceMethod/SourceMethod';
 import ResultCard from '../components/ResultCard/ResultCard.jsx'
 import { CREATE_VOTE } from '../queries'
-
+import { withApollo } from '@apollo/react-hoc'
+import { useMutation } from '@apollo/react-hooks';
+import { setResults } from '../actions'
 
 class ResultsContainer extends Component {
   constructor(props) {
     super();
   }
 
-  handleUpvote = (resultId) => {
-    debugger
-    // send graph QL query to mutation
-    // include: methodResultId (get it out of the results card)
-    // save return of graphQL query in variable
-    // update redux store w/ the results
-    // rerender the component
+  handleVote = async (resultId, event, type) => {
+    this.setState({error: ''});
+    const newResult = Number(resultId);
+    const { data, loading, error } = await this.props.client.mutate({ mutation: CREATE_VOTE, variables: { methodResultId: newResult, type: type}})
+    console.log('data is:', data)
+    this.props.setResults(data.createVote);
   }
+
   render() {
-    const results = this.props.results.map(result => {
-      return result.translations.map(res => <ResultCard rating={res.weightedRelevancyRating} method={res.method} resultId={res.id} handleUpvote={this.handleUpvote}/>)
-    })
+    const results = this.props.results.map(res => <ResultCard
+                                                   rating={res.weightedRelevancyRating}
+                                                   method={res.method}
+                                                   resultId={res.id}
+                                                   handleVote={this.handleVote}/>);
 
     if(!this.props.results.length) {
       return(
@@ -59,4 +63,9 @@ class ResultsContainer extends Component {
 export const mapStateToProps = (state) => ({
   results: state.results
 })
-export default connect(mapStateToProps)(ResultsContainer);
+
+export const mapDispatchToProps = dispatch => ({
+  setResults: results => dispatch(setResults(results))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withApollo(ResultsContainer));
