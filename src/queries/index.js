@@ -22,6 +22,7 @@ export const GET_TRANSLATION =
    gql`
   query translations($targetLanguageId: Int!, $methodId: Int!) {
     translations(targetLanguageId: $targetLanguageId, methodId: $methodId) {
+      id
       weightedRelevancyRating
       method {
         id
@@ -33,4 +34,22 @@ export const GET_TRANSLATION =
       }
     }
   }
+`
+
+export const CREATE_VOTE =
+  gql`
+  mutation createVote($methodResultId: Int!) {
+   createVote(methodResultId: $methodResultId) {
+     id
+     weightedRelevancyRating
+     method {
+       id
+       name
+       description
+       syntax
+       snippet
+       docsUrl
+     }
+   }
+ }
 `
