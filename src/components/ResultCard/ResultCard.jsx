@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/ResultCard.scss'
 
-const ResultCard = ({rating, method}) => {
+export const ResultCard = ({rating, method}) => {
   let {name, id, description, snippet, syntax}=method
   let rate = (rating.toFixed(2))* 100
   return (
