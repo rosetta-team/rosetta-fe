@@ -64,14 +64,14 @@ span {
 }
 
 .bottom-div-snippet {
-  padding: 1%;
+  padding: 2%;
   width: 90%;
 }
 
 .user-vote-section {
   padding: 0 1% 1% 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .vote-btn {
@@ -104,11 +104,10 @@ span {
 }
 
 .code-wrapper {
-  background-color: #eee;
   border-radius: 5px;
   padding: 3px;
-  width: 90%;
-  height: 100px;
+  width: 100%;
+  height: auto;
   margin-left: 2%;
 }
 
@@ -117,3 +116,8 @@ span {
     monospace;
   font-size: .9em;
 }
+
+// pre {
+//   white-space: pre;
+//   overflow: auto;
+// } 
