@@ -21,10 +21,8 @@ describe('sourceMethod reducer', () => {
     const expected = { name: 'Array#map',
                        id: 54 }
 
-    const result = sourceMethod({}, setSourceMethod(mockMethod.name, mockMethod.id));
-    // const result = sourceMethod({}, setSourceMethod(mockMethod));
+    const result = sourceMethod({}, setSourceMethod(mockMethod));
 
-    expect(result).toEqual(expected);
-    // expect(result).toEqual(mockMethod);
+    expect(result).toEqual(mockMethod);
   });
 });
