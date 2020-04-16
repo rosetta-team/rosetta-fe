@@ -25,3 +25,16 @@ After running coverage report, to open graphic interface version:
 ```
 open coverage/lcov-report/index.html
 ```
+
+### Technologies and Frameworks
+
+- React
+- Redux
+- Apollo Client & GraphQL
+- Jest & React Testing Library
+- Prism.js
+
+### Resource Credits
+
+ - Boilerplate code for a Prism component: https://betterstack.dev/blog/code-highlighting-in-react-using-prismjs/
+ - "Tomorrow Night" theme CSS for syntax highlighting: https://prismjs.com/
