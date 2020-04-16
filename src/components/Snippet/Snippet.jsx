@@ -6,17 +6,21 @@ export class Snippet extends Component {
     super(props)
     this.ref = React.createRef()
   }
+
   componentDidMount() {
     this.highlight()
   }
+
   componentDidUpdate() {
     this.highlight()
   }
+
   highlight = () => {
     if (this.ref && this.ref.current) {
       Prism.highlightElement(this.ref.current)
     }
   }
+
   render() {
     const { code, plugins, language } = this.props
     return (
@@ -28,4 +32,5 @@ export class Snippet extends Component {
     )
   }
 }
+
 export default Snippet
