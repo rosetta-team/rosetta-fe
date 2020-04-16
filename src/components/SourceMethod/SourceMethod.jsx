@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../../styles/SourceMethod.scss';
+import '../../styles/prism.css'
+import Snippet from "../Snippet/Snippet.jsx"
 
 export const SourceMethod = (props) => {
 let { id, name, description, syntax, snippet, docsUrl} = props.sourceMethod
@@ -18,7 +20,13 @@ let { id, name, description, syntax, snippet, docsUrl} = props.sourceMethod
       <section className='method-bottom-sect'>
         <div>
           <span>Snippet:</span>
-          <section className='source-code-wrapper'><code className='code-snippet'>{snippet}</code> </section>
+            <section className='code-wrapper'>
+               <Snippet
+                code={snippet}
+                language="js"
+                plugins={["line-numbers"]}
+              />
+            </section>
         </div>
       </section>
     </section>

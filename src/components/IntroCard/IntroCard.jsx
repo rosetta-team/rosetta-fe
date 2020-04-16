@@ -10,16 +10,16 @@ export const IntroCard = () => {
       <section className='intro-message'>
         <p className='intro-para'>Rosetta was designed to help those who are
         interested in learning a new coding language and want to know the basics.
-        Rosetta has a webscraping tool that surfs the web for you and fins your best
-        results despending on a relevancy rating. This takes the pain and stress out of
-        looking through multiple stack overflow responses/ other websites you might encounter.
-        Just follow these steps to get started:
+        Rosetta surfs the web for you and finds your best results based
+        on a relevancy rating. This takes the pain and stress out of sifting
+        through multiple websites and forums to find a simple method conversion.
+        Follow these steps to get started:
         </p>
         <ol className='ordered-list'>
-          <li className='list-item'>Select your native language(language you feel comfortable with)</li>
+          <li className='list-item'>Select your native language (language you know best)</li>
           <li className='list-item'>Select the method you would like to translate</li>
-          <li className='list-item'>Select the language you are targeting(language you want to know)</li>
-          <li className='list-item'>Click the translate button(Easy! We know!)</li>
+          <li className='list-item'>Select the language you are targeting (language you want to know)</li>
+          <li className='list-item'>Click the translate button (Easy! We know!)</li>
         </ol>
       </section>
     </section>
