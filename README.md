@@ -44,7 +44,7 @@ Rosetta's dev team is:
 
 ## Technologies and Frameworks
 
-![Architecture Diagram](architecture_diagram.png)
+![Architecture Diagram](public/architecture_diagram.png)
 
 - Back-End
   - Language: Python
