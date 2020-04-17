@@ -1,4 +1,4 @@
-# Rosetta [![rosetta-team](https://circleci.com/gh/rosetta-team/rosetta-fe.svg?style=svg)](https://circleci.com/gh/rosetta-team/rosetta-fe)[![Maintainability](https://api.codeclimate.com/v1/badges/fb6dbc5d5865b6521c0c/maintainability)](https://codeclimate.com/github/rosetta-team/rosetta-fe/maintainability)
+# Rosetta [![rosetta-team](https://circleci.com/gh/rosetta-team/rosetta-fe.svg?style=svg)](https://circleci.com/gh/rosetta-team/rosetta-fe) [![Maintainability](https://api.codeclimate.com/v1/badges/fb6dbc5d5865b6521c0c/maintainability)](https://codeclimate.com/github/rosetta-team/rosetta-fe/maintainability)
 
 ## Table of Contents
 
@@ -131,29 +131,41 @@ Both the back-end and front-end of the live Rosetta app are deployed on Heroku, 
 ![PostgreSQL Schema Diagram](public/db_schema_diagram.png)
 
 - Install PostgreSQL with Homebrew
-    ```
-    brew install postgresql
-    ```
+  ```
+  brew install postgresql
+  ```
 - Create database from terminal
     - Open interactive PostgreSQL session:
-        ```
-        psql
-        ```
+      ```
+      psql
+      ```
     - Enter SQL command to create empty database:
-        ```
-        CREATE DATABASE rosetta_dev;
-        ```
+      ```
+      CREATE DATABASE rosetta_dev;
+      ```
+
+At this point you can populate your database from scratch by running the scripts below, but it's preferable to import this from an already populated database to avoid excessive hits to the official language docs.
+
+This is possible by restoring the "dumpfile" contained in the root directory of the back-end repo. You can read instructions on how to do this [in these official PostgreSQL docs](https://www.postgresql.org/docs/9.4/backup-dump.html), or simply run the following command while in the rosetta-be repo directory:
+  ```
+  psql rosetta_dev < database_dump
+  ```
+
+This will recreate all the tables and relationships and data that would be created by the following scripts and migrations, and you can skip the rest of this section.
+
+Alternatively, if you choose to populate the database from scratch, follow the instructions below. Note that, because these scripts rely upon web-scraping official documentation websites which may change without notice, these may cease to function as expected.
 - Run migrations to add tables to database
-    ```
-    python flaskr/manage.py db upgrade
-    ```
-    - If you encounter the error "Target database is not up to date," you are likely out of sync with the migrations. Run `python flaskr/manage.py db stamp head` to set the current state of your database as "head," then re-attempt to run `db upgrade`.
-    - If you had to drop your DB in development, you might need to run `python flaskr/manage.py db migrate` before `python flaskr/manage.py db upgrade`.
-- If you need to populate your database, read the instructions below, but if possible, it's preferable to import this from an already populated database, such as the Rosetta production server database (to be added):
+```
+python flaskr/manage.py db upgrade
+```
+- If you encounter the error "Target database is not up to date," you are likely out of sync with the migrations. Run `python flaskr/manage.py db stamp head` to set the current state of your database as "head," then re-attempt to run `db upgrade`.
+- If you had to drop your DB in development, you might need to run `python flaskr/manage.py db migrate` before `python flaskr/manage.py db upgrade`.
+
 
 NOTE: en_core_web_lg doesn't exist as a package in its own right on pypi.org or Anaconda, so you can't just pip install it by name. Instead, you must run the following command:
-
-`python -m spacy download en_core_web_lg`
+  ```
+  python -m spacy download en_core_web_lg
+  ```
 
 Afterwards, run the following scripts to populate the database:
 
@@ -163,8 +175,9 @@ Afterwards, run the following scripts to populate the database:
    python flaskr/relevancy_rating_generator.py
    ```
 
-If you need to clear your database, run the following commands:
+At this point your database should be populated.
 
+If at any point something goes wrong and you need to reset a particular table, run the following commands:
 - Enter the psql console: `psql`
 - Connect with Rosetta database: `\c rosetta_dev`
 - Clear tables: `TRUNCATE TABLE [table_name] RESTART IDENTITY CASCADE;`
@@ -462,7 +475,7 @@ Creates a user vote record in the database associated with a particular method r
   }
   ```
 - Example Response:
-  ```
+  ```js
     {
     "data": {
       "translations": [
