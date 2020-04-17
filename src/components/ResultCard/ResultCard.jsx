@@ -30,7 +30,6 @@ export const ResultCard = ({rating, method, resultId, handleVote}) => {
                <Snippet
                 code={snippet}
                 language="js"
-                plugins={["line-numbers"]}
               />
             </section>
         </div>
