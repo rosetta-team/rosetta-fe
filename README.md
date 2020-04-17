@@ -234,6 +234,8 @@ open coverage/lcov-report/index.html
 
 ### GraphQL
 
+![GraphiQL interface screenshot](public/graphiql_screenshot.png)
+
 When running the back-end server locally, the interactive GraphiQL interface can be accessed at `localhost:5000/graphql`. There, you can run actual queries and mutations against the back-end and view the automated documentation of the schema and queries.
 
 When sending a query to the server from elsewhere (such as Postman), send a `POST` request to `localhost:5000/graphql` with the query as the body.
