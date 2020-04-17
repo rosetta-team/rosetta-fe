@@ -35,6 +35,7 @@ pre[class*="language-"] {
 	padding: 1em;
 	margin: .5em 0;
 	overflow: auto;
+	font-size: .94em;
 }
 
 :not(pre) > code[class*="language-"],
@@ -125,8 +126,9 @@ pre[class*="language-"] {
 
 pre[class*="language-"].line-numbers {
 	position: relative;
-	padding-left: 3.8em;
+	/* padding-left: 3.8em; */
 	counter-reset: linenumber;
+	border-radius: 5px;
 }
 
 pre[class*="language-"].line-numbers > code {
