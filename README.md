@@ -25,6 +25,8 @@
 - Visit the deployed Rosetta app at http://rosetta-fe.herokuapp.com.
 - Visit the interactive GraphiQL interface at http://rosetta-server.herokuapp.com/graphql.
 
+![Screenshot of front-end results component](public/results_screenshot.png)
+
 ## Introduction
 
 Rosetta is Google Translate for programming languages. It eases the process of learning new languages by translating a built-in function in a language you know into the closest equivalent in one you don’t. It does this by scraping official language docs using BeautifulSoup and comparing them using spaCy (a ML-powered natural language processing library) in the Python/Flask back-end, which the React/Redux front-end interacts with using Apollo Client and GraphQL.
@@ -125,6 +127,8 @@ Both the back-end and front-end of the live Rosetta app are deployed on Heroku, 
     ```
 
 #### Database Setup
+
+![PostgreSQL Schema Diagram](public/db_schema_diagram.png)
 
 - Install PostgreSQL with Homebrew
     ```
@@ -373,66 +377,66 @@ Returns all languages in the database and (optionally) their associated methods 
 - Example Response (abridged):
   ```js
   {
-  "data": {
-    "allLanguages": [
-      {
-        "id": "1",
-        "name": "Ruby",
-        "methods": [
-          {
-            "id": "1",
-            "name": "Array::[]"
-          },
-          {
-            "id": "2",
-            "name": "Array::new"
-          },
-          {
-            "id": "3",
-            "name": "Array::try_convert"
-          },
-          {
-            "id": "4",
-            "name": "Array#&"
-          },
-          {
-            "id": "5",
-            "name": "Array#*"
-          },
-          // ...
-        ]
-      },
-      {
-        "id": "2",
-        "name": "JavaScript",
-        "methods": [
-          {
-            "id": "109",
-            "name": "Array.from()"
-          },
-          {
-            "id": "110",
-            "name": "Array.isArray()"
-          },
-          {
-            "id": "111",
-            "name": "Array.of()"
-          },
-          {
-            "id": "112",
-            "name": "Array.prototype.concat()"
-          },
-          {
-            "id": "113",
-            "name": "Array.prototype.copyWithin()"
-          },
-          // ...
-        ]
-      }
-    ]
+    "data": {
+      "allLanguages": [
+        {
+          "id": "1",
+          "name": "Ruby",
+          "methods": [
+            {
+              "id": "1",
+              "name": "Array::[]"
+            },
+            {
+              "id": "2",
+              "name": "Array::new"
+            },
+            {
+              "id": "3",
+              "name": "Array::try_convert"
+            },
+            {
+              "id": "4",
+              "name": "Array#&"
+            },
+            {
+              "id": "5",
+              "name": "Array#*"
+            },
+            // ...
+          ]
+        },
+        {
+          "id": "2",
+          "name": "JavaScript",
+          "methods": [
+            {
+              "id": "109",
+              "name": "Array.from()"
+            },
+            {
+              "id": "110",
+              "name": "Array.isArray()"
+            },
+            {
+              "id": "111",
+              "name": "Array.of()"
+            },
+            {
+              "id": "112",
+              "name": "Array.prototype.concat()"
+            },
+            {
+              "id": "113",
+              "name": "Array.prototype.copyWithin()"
+            },
+            // ...
+          ]
+        }
+      ]
+    }
   }
-}
-```
+  ```
 
 ##### `createVote` Mutation
 
