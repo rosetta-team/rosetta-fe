@@ -24,7 +24,6 @@ let { id, name, description, syntax, snippet, docsUrl} = props.sourceMethod
                <Snippet
                 code={snippet}
                 language="js"
-                plugins={["line-numbers"]}
               />
             </section>
         </div>
