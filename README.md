@@ -10,9 +10,9 @@
   - [Local Deployment](#local-deployment)
     - [Back-End Instructions](#back-end-instructions)
       - [Python and Flask Setup](#python-and-flask-setup)
-      - [Database Setup](#postgresql-setup)
+      - [Database Setup](#database-setup)
       - [Starting Flask Server](#starting-flask-server)
-    - [Front-End Instructions](#front-end-setup)
+    - [Front-End Instructions](#front-end-instructions)
   - [Testing and Test Coverage](#testing-and-test-coverage)
     - [Back-End Testing](#back-end-testing)
     - [Front-End Testing](#front-end-testing)
@@ -25,7 +25,7 @@
 - Visit the deployed Rosetta app at http://rosetta-fe.herokuapp.com.
 - Visit the interactive GraphiQL interface at http://rosetta-server.herokuapp.com/graphql.
 
-![Screenshot of front-end results component](public/results_screenshot.png)
+![GIF animation of interacting with Rosetta](https://user-images.githubusercontent.com/16090626/79530071-8ade6080-802b-11ea-9806-de125d7a9919.gif)
 
 ## Introduction
 
@@ -79,7 +79,7 @@ Both the back-end and front-end of the live Rosetta app are deployed on Heroku, 
 
 ### Back-End Instructions
 
-#### Python & Flask Setup
+#### Python and Flask Setup
 
 - Clone this repo to your local machine using SSH:
   ```
@@ -143,6 +143,10 @@ Both the back-end and front-end of the live Rosetta app are deployed on Heroku, 
       ```
       CREATE DATABASE rosetta_dev;
       ```
+- Create a file named `.env` in the `/flaskr` directory, and inside it add this line:
+  ```
+  DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/rosetta_dev"
+  ```
 
 At this point you can populate your database from scratch by running the scripts below, but it's preferable to import this from an already populated database to avoid excessive hits to the official language docs.
 
@@ -154,15 +158,16 @@ This is possible by restoring the "dumpfile" contained in the root directory of 
 This will recreate all the tables and relationships and data that would be created by the following scripts and migrations, and you can skip the rest of this section.
 
 Alternatively, if you choose to populate the database from scratch, follow the instructions below. Note that, because these scripts rely upon web-scraping official documentation websites which may change without notice, these may cease to function as expected.
-- Run migrations to add tables to database
+
+Run the Alembic migrations to add tables to database:
 ```
 python flaskr/manage.py db upgrade
 ```
-- If you encounter the error "Target database is not up to date," you are likely out of sync with the migrations. Run `python flaskr/manage.py db stamp head` to set the current state of your database as "head," then re-attempt to run `db upgrade`.
-- If you had to drop your DB in development, you might need to run `python flaskr/manage.py db migrate` before `python flaskr/manage.py db upgrade`.
+  - If you run this subsequent times, you might encounter the error "Target database is not up to date," which means you are likely out of sync with the migrations. Run `python flaskr/manage.py db stamp head` to set the current state of your database as "head," then re-attempt to run `db upgrade`.
+  - If you had to drop your DB in development, you might need to run `python flaskr/manage.py db migrate` before `python flaskr/manage.py db upgrade`.
 
 
-NOTE: en_core_web_lg doesn't exist as a package in its own right on pypi.org or Anaconda, so you can't just pip install it by name. Instead, you must run the following command:
+spaCy requires downloading an additional file to perform the natural language processing to create the weighted relevancy ratings. `en_core_web_lg` doesn't exist as a package in its own right on pypi.org or Anaconda, so you can't just pip install it by name. Instead, you must run the following command:
   ```
   python -m spacy download en_core_web_lg
   ```
@@ -211,6 +216,11 @@ git clone git@github.com:rosetta-team/rosetta-fe.git
 To run back-end test suite:
 ```
 pytest
+```
+
+To configure the included `coverage` module to run without additional arguments, as below, run the following (should only need to do so once):
+```
+coverage -m pytest
 ```
 
 To run test coverage report:
