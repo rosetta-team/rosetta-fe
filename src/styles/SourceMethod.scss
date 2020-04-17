@@ -29,6 +29,7 @@ $snow: #FFFAFB;
 .method-mid-section,
 .method-bottom-sect {
   padding: 2%;
+  letter-spacing: 0.05em;
 }
 
 .syntax-div {
@@ -41,10 +42,8 @@ $snow: #FFFAFB;
 
 .source-code-wrapper {
   border-radius: 5px;
-  padding: 3px;
   width: auto;
   height: 100px;
-  // margin-left: 2%;
 }
 
 .code-snippet {

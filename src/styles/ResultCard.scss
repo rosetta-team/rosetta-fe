@@ -11,6 +11,8 @@ $snow: #FFFAFB;
   background-color: $snow;
   margin-top: 2%;
   border-radius: 5px;
+  font-family: 'Source Sans Pro',
+  sans-serif;
 }
 
 .top-section {
@@ -35,10 +37,17 @@ $snow: #FFFAFB;
 
 .mid-section {
   height: auto;
-  padding: 2%;
+  padding: 2% 2% 0% 2%;
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
+  align-items: center;
+}
+
+.mid-div-description {
+  width: 94%;
+  justify-content: center;
+  letter-spacing: 0.05em;
 }
 
 span {
@@ -47,20 +56,20 @@ span {
 
 .mid-div-syntax {
   border: solid 1px;
-  width: 90%;
+  width: 92%;
   padding: 1%;
   background-color: $secondary-color;
   border-radius: 5px;
   align-self: center;
   margin-top: 1%;
+  letter-spacing: 0.05em;
 }
 
 .bottom-section {
   height: auto;
-  margin-top: 1%;
-  border-top: solid 1px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .bottom-div-snippet {
@@ -69,19 +78,26 @@ span {
 }
 
 .user-vote-section {
-  padding: 0 1% 1% 0;
+  padding: 0 0 2% 0;
   display: flex;
   justify-content: center;
+}
+
+.up {
+  margin-right: 3%;
+}
+
+.down {
+  margin-left: 3%
 }
 
 .vote-btn {
   padding: 1%;
   border-radius: 5px;
-  margin-right: 5%;
   background-color: $primary-color;
   color: $pale-blue;
   font-size: .8em;
-  width: 150px;
+  width: 190px;
   height: 35px;
   align-self: flex-end;
 
@@ -107,10 +123,8 @@ span {
 
 .code-wrapper {
   border-radius: 5px;
-  padding: 3px;
   width: 100%;
   height: auto;
-  margin-left: 2%;
 }
 
 .code-snippet {

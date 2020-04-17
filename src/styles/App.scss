@@ -7,6 +7,8 @@ $snow: rgb(202, 202, 202);
 * {
   margin: 0px;
   padding: 0px;
+  font-family: 'Source Sans Pro',
+  sans-serif;
 }
 
 .main-app {
@@ -14,7 +16,6 @@ $snow: rgb(202, 202, 202);
   flex-direction: column;
   height: 100%;
   justify-content: center;
-
   background-color: $snow;
 }
 
@@ -24,5 +25,4 @@ $snow: rgb(202, 202, 202);
   border-top: solid 5px $primary-color;
   height: 100%;
   align-self: center;
-
 }
